@@ -61,8 +61,8 @@ public abstract class Pelanggan {
         int jmlMotor = 0;
         int jmlMobil = 0;
         for (ItemKeranjang item : p.getItems()) {
-            if (item.getMenu() instanceof Motor) jmlMotor += item.getJumlah();
-            else if (item.getMenu() instanceof Mobil) jmlMobil += item.getJumlah();
+            if (item.getMenu() instanceof Motor) jmlMotor += 1;
+            else if (item.getMenu() instanceof Mobil) jmlMobil += 1;
         }
         
         String namaPromo = (p.getPromo() != null) ? p.getPromo().getKode() : "-";
