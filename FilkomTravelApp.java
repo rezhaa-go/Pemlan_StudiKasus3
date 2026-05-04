@@ -1,6 +1,7 @@
 package Studi_Kasus3;
 
 import java.text.*;
+import java.time.LocalDate;
 import java.util.*;
 
 public class FilkomTravelApp {
@@ -133,10 +134,10 @@ public class FilkomTravelApp {
         if (itemLama != null) {
             int totalQty = itemLama.getJumlah() + qtyBaru;
             itemLama.setJumlah(totalQty);
-            System.out.println("ADD_TO_CART SUCCESS: " + totalQty + (totalQty > 1 ? " days " : " day ") + menu.getNama() + " " + menu.getPlat() + " (UPDATE)");
+            System.out.println("ADD_TO_CART SUCCESS: " + totalQty + " unit " + menu.getNama() + " " + menu.getPlat() + " (UPDATE)");
         } else {
             plg.getKeranjang().add(new ItemKeranjang(menu, qtyBaru, tgl));
-            System.out.println("ADD_TO_CART SUCCESS: " + qtyBaru + (qtyBaru > 1 ? " days " : " day ") + menu.getNama() + " " + menu.getPlat() + " (NEW)");
+            System.out.println("ADD_TO_CART SUCCESS: " + qtyBaru + " unit " + menu.getNama() + " " + menu.getPlat() + " (NEW)");
         }
         Collections.sort(plg.getKeranjang());
     }
@@ -180,7 +181,7 @@ public class FilkomTravelApp {
             return;
         }
 
-        Date hariIni = sdf.parse("2024/06/01"); 
+        Date hariIni = new Date(); 
         long sub = 0;
         for (ItemKeranjang i : plg.getKeranjang()) sub += i.getSubtotal();
         if (sub < p.getMinPembelian()) {
